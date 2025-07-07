@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prompt Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background-color: #f8f9fa;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 1rem;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      margin-top: 1.5rem;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #result {
+      margin-top: 2rem;
+      background-color: #fff;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Prompt Generator AI</h2>
+  
+  <label for="subjek">Deskripsi Subjek</label>
+  <input type="text" id="subjek" placeholder="Contoh: Pasangan pria dan wanita Indonesia" />
+
+  <label for="pakaian">Pakaian & Aksesori</label>
+  <input type="text" id="pakaian" placeholder="Contoh: Gaun hitam elegan dan jas hitam dengan sepatu kulit" />
+
+  <label for="mobil">Deskripsi Mobil</label>
+  <input type="text" id="mobil" placeholder="Contoh: BayGM Seal putih, plat 'B 4 YU', tampak samping" />
+
+  <label for="latar">Latar Belakang & Lingkungan</label>
+  <input type="text" id="latar" placeholder="Contoh: Gedung kota dan pepohonan dengan lampu jalan" />
+
+  <label for="kamera">Pengaturan Kamera</label>
+  <input type="text" id="kamera" placeholder="Contoh: Ultra-wide 0.5, jarak 10 meter, bokeh dalam, rasio 9:16" />
+
+  <button onclick="generatePrompt()">Buat Prompt</button>
+
+  <div id="result"></div>
+
+  <script>
+    function generatePrompt() {
+      const subjek = document.getElementById("subjek").value;
+      const pakaian = document.getElementById("pakaian").value;
+      const mobil = document.getElementById("mobil").value;
+      const latar = document.getElementById("latar").value;
+      const kamera = document.getElementById("kamera").value;
+
+      const prompt = `${subjek}. ${pakaian}. Mereka duduk di atas kap ${mobil}. Di belakang mereka, ${latar}. Foto diambil menggunakan ${kamera}.`;
+
+      document.getElementById("result").innerHTML = `
+        <h3>Prompt Hasil:</h3>
+        <textarea rows="6">${prompt}</textarea>
+      `;
+    }
+  </script>
+</body>
+</html>
